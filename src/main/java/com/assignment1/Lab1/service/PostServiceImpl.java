@@ -1,6 +1,6 @@
 package com.assignment1.Lab1.service;
 
-import com.assignment1.Lab1.PostDTO;
+import com.assignment1.Lab1.entity.DTOs.PostDTO;
 import com.assignment1.Lab1.Repository.PostRepo;
 import com.assignment1.Lab1.entity.Post;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.assignment1.Lab1.service;
 
-import com.assignment1.Lab1.PostDTO;
+import com.assignment1.Lab1.entity.DTOs.PostDTO;
 import com.assignment1.Lab1.entity.Post;
 
 import java.util.List;

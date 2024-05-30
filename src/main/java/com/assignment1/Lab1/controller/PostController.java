@@ -1,8 +1,7 @@
 package com.assignment1.Lab1.controller;
 
-import com.assignment1.Lab1.PostDTO;
+import com.assignment1.Lab1.entity.DTOs.PostDTO;
 import com.assignment1.Lab1.service.PostService;
-import com.assignment1.Lab1.entity.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
