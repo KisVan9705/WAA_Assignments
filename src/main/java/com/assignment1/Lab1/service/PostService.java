@@ -8,7 +8,7 @@ import java.util.List;
 public interface PostService {
     List<PostDTO> findAll();
     PostDTO findById(long id);
-    void save (Post post);
+    void save (PostDTO post);
     void delete(long id);
     Post update (long id, Post post);
     List<PostDTO> searchNameByText(String text);

@@ -5,6 +5,7 @@ import com.assignment1.Lab1.Repository.PostRepo;
 import com.assignment1.Lab1.entity.Post;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +13,10 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-
 public class PostServiceImpl implements PostService{
-    private final PostRepo postRepo;
+
+    @Autowired
+    PostRepo postRepo;
     private final ModelMapper modelMapper;
     @Override
     public List<PostDTO> findAll() {
@@ -23,18 +25,22 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public PostDTO findById(long id) {
-        Post post = postRepo.findById(id);
+        Post post = postRepo.findById(id).get();
         return post != null ? modelMapper.map(post, PostDTO.class): null;
     }
 
     @Override
-    public void save(Post post) {
+    public void save(PostDTO postDto) {
+        Post post = new Post();
+        post.setAuthor(postDto.getAuthor());
+        post.setTitle(postDto.getTitle());
+        post.setContent(postDto.getContent());
         postRepo.save(post);
     }
 
     @Override
     public void delete(long id) {
-        postRepo.delete(id);
+//        postRepo.delete(id);
     }
 
     @Override

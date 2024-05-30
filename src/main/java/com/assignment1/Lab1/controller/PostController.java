@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class PostController {
+
     private final PostService postService;
 
 
@@ -26,7 +27,7 @@ public class PostController {
     }
 
     @PostMapping
-    public String addPost(@RequestBody Post post){
+    public String addPost(@RequestBody PostDTO post){
         postService.save(post);
         return "Post added successfully";
     }
