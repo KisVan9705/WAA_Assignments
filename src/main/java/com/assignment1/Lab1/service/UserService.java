@@ -12,4 +12,7 @@ public interface UserService {
     void addUser(UserDTO userDTO);
 
     public List<Post> getPostsByUserId(Long userId);
+    public List<Post> findPostsById(long id);
+
+
 }
