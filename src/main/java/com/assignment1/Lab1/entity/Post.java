@@ -1,5 +1,6 @@
 package com.assignment1.Lab1.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,5 +23,6 @@ public class Post {
     String author;
 
     @ManyToOne
+    @JsonBackReference
     private User user;
 }

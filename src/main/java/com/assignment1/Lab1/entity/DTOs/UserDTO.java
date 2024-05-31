@@ -19,5 +19,5 @@ public class UserDTO {
 
     private Long id;
     String name;
-    List<Post> posts;
+//    List<Post> posts;
 }

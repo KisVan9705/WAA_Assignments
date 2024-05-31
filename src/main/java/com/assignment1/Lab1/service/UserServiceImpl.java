@@ -27,12 +27,22 @@ public class UserServiceImpl implements UserService{
     public void addUser(UserDTO userDTO){
         User user = new User();
         user.setName(userDTO.getName());
-        user.setPosts(userDTO.getPosts());
+//        user.setPosts(userDTO.getPosts());
         userRepo.save(user);
     }
 
     @Override
     public List<Post> getPostsByUserId(Long userId) {
         return userRepo.findPostsByUserId(userId);
+    }
+
+    @Override
+    public UserDTO findUserById(Long userId){
+       UserDTO mapper = new UserDTO();
+
+        User result = userRepo.findUserById(userId);
+        mapper.setId(result.getId());
+        mapper.setName(result.getName());
+        return mapper;
     }
 }

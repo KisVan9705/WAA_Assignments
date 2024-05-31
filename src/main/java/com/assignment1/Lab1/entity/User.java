@@ -1,5 +1,6 @@
 package com.assignment1.Lab1.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import lombok.Data;
@@ -19,7 +20,8 @@ public class User {
     private Long id;
     String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
+            @JsonManagedReference
     List<Post> posts;
 }

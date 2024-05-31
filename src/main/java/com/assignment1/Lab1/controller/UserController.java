@@ -33,4 +33,9 @@ public class UserController {
     public List<Post> getPostsByUserId(@PathVariable Long userId) {
         return userService.getPostsByUserId(userId);
     }
+
+    @GetMapping("/{userId}")
+    public UserDTO findUserById(@PathVariable Long userId){
+        return userService.findUserById(userId);
+    }
 }
