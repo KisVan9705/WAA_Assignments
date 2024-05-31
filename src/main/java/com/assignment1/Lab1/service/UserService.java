@@ -1,5 +1,6 @@
 package com.assignment1.Lab1.service;
 
+import com.assignment1.Lab1.entity.Post;
 import com.assignment1.Lab1.entity.User;
 import com.assignment1.Lab1.entity.DTOs.UserDTO;
 
@@ -9,4 +10,6 @@ public interface UserService {
     List<User> findAll();
 
     void addUser(UserDTO userDTO);
+
+    public List<Post> getPostsByUserId(Long userId);
 }

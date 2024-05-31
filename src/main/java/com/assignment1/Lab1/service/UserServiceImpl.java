@@ -1,6 +1,7 @@
 package com.assignment1.Lab1.service;
 
 import com.assignment1.Lab1.Repository.UserRepo;
+import com.assignment1.Lab1.entity.Post;
 import com.assignment1.Lab1.entity.User;
 
 import com.assignment1.Lab1.entity.DTOs.UserDTO;
@@ -26,6 +27,12 @@ public class UserServiceImpl implements UserService{
     public void addUser(UserDTO userDTO){
         User user = new User();
         user.setName(userDTO.getName());
+        user.setPosts(userDTO.getPosts());
         userRepo.save(user);
+    }
+
+    @Override
+    public List<Post> getPostsByUserId(Long userId) {
+        return userRepo.findPostsByUserId(userId);
     }
 }

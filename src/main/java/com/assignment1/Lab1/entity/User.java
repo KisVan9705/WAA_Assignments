@@ -1,20 +1,25 @@
 package com.assignment1.Lab1.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+
+
+import java.util.List;
 
 @Entity
-@Component
 @Data
 @RequiredArgsConstructor
-@Table(name = "users") // Use a different table name
+@Table(name = "users") // Use a different table name because user is a reserved keyword in SQL that throws SQLException
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     String name;
+
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    List<Post> posts;
 }

@@ -1,6 +1,7 @@
 package com.assignment1.Lab1.controller;
 
 
+import com.assignment1.Lab1.entity.Post;
 import com.assignment1.Lab1.entity.User;
 import com.assignment1.Lab1.entity.DTOs.UserDTO;
 import com.assignment1.Lab1.service.UserService;
@@ -26,5 +27,10 @@ public class UserController {
     @GetMapping
     public List<User> findAll(){
         return userService.findAll();
+    }
+
+    @GetMapping("/{userId}/posts")
+    public List<Post> getPostsByUserId(@PathVariable Long userId) {
+        return userService.getPostsByUserId(userId);
     }
 }
