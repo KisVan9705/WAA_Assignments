@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService{
         User result = userRepo.findUserById(userId);
         mapper.setId(result.getId());
         mapper.setName(result.getName());
+        mapper.setPosts(result.getPosts());
         return mapper;
     }
 }

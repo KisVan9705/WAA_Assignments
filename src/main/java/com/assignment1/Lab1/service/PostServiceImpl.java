@@ -1,5 +1,8 @@
 package com.assignment1.Lab1.service;
 
+import com.assignment1.Lab1.Repository.CommentRepo;
+import com.assignment1.Lab1.entity.Comment;
+import com.assignment1.Lab1.entity.DTOs.CommentDTO;
 import com.assignment1.Lab1.entity.DTOs.PostDTO;
 import com.assignment1.Lab1.Repository.PostRepo;
 import com.assignment1.Lab1.entity.Post;
@@ -7,8 +10,10 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -17,6 +22,9 @@ public class PostServiceImpl implements PostService{
 
     @Autowired
     PostRepo postRepo;
+    @Autowired
+    CommentRepo commentRepo;
+
     private final ModelMapper modelMapper;
     @Override
     public List<PostDTO> findAll() {
@@ -51,5 +59,15 @@ public class PostServiceImpl implements PostService{
     @Override
     public List<PostDTO> searchNameByText(String text) {
         return null;
+    }
+
+//    @Override
+//    public void addCommentToPost(Long post_id, Comment comment) {
+//        Optional<Post> post = postRepo.findById(post_id);
+//
+//    }
+    @Override
+    public List<Comment> findCommentsByPostId(Long postId){
+       return postRepo.findCommentByPostId(postId);
     }
 }

@@ -1,8 +1,12 @@
 package com.assignment1.Lab1.controller;
 
+import com.assignment1.Lab1.entity.Comment;
+import com.assignment1.Lab1.entity.DTOs.CommentDTO;
 import com.assignment1.Lab1.entity.DTOs.PostDTO;
+import com.assignment1.Lab1.service.CommentService;
 import com.assignment1.Lab1.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +17,7 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
+//    private final CommentService commentService;
 
 
     @GetMapping
@@ -35,5 +40,16 @@ public class PostController {
     public String deleteById(@PathVariable("id") long id){
         postService.delete(id);
         return "Post deleted";
+    }
+
+//    @PostMapping("/{id}/comments")
+//    public String addCommentToPost(@PathVariable ("id") Long post_id, @RequestBody CommentDTO commentDTO){
+//        commentService.addCommentToPost(post_id,commentDTO);
+//        return "Comment Added to post:" + Long.toString(post_id);
+//    }
+
+    @GetMapping("/{id}/comments")
+    public List<Comment> getCommentsByPostId(@PathVariable ("id") Long postId){
+       return postService.findCommentsByPostId(postId);
     }
 }

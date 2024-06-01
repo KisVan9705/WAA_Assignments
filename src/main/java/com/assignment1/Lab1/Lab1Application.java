@@ -16,5 +16,7 @@ public class Lab1Application {
 	public ModelMapper modelMapper(){
 		return new ModelMapper();
 	}
+//	@Bean
+//	public UserMapper userMapper(){ return  new UserMapper();}
 
 }
