@@ -1,19 +1,31 @@
--- Insert into User table
-INSERT INTO users (name) VALUES ('John Doe');
-INSERT INTO users (name) VALUES ('Jane Smith');
-
--- Get the generated IDs for the users
--- Assuming the IDs are 1 and 2
-
--- Insert into Post table
-INSERT INTO posts (id,title, content, author, user_id) VALUES (1,'First Post', 'This is the content of the first post.', 'John Doe', 1);
-INSERT INTO posts (id,title, content, author, user_id) VALUES (2,'Second Post', 'This is the content of the second post.', 'John Doe', 1);
-INSERT INTO posts (id,title, content, author, user_id) VALUES (3,'Third Post', 'This is the content of the third post.', 'Jane Smith', 2);
-INSERT INTO posts (id,title, content, author, user_id) VALUES (4, 'Fourth Post', 'This is the content of the fourth post.', 'Jane Smith', 2);
+--Insert into address
+INSERT INTO address (zip, address_id, city, state) VALUES (5226, 1, 'Fairfield', 'IA');
+INSERT INTO address (zip, address_id, city, state) VALUES (5227, 2, 'Ottumwa', 'IA');
+INSERT INTO address (zip, address_id, city, state) VALUES (5228, 3, 'Cedar Rapids', 'IA');
+INSERT INTO address (zip, address_id, city, state) VALUES (5229, 4, 'Iowa City', 'IA');
+INSERT INTO address (zip, address_id, city, state) VALUES (5230, 5, 'Des Moines', 'IA');
 
 
--- Insert into Comment table
-INSERT INTO comments (id,name, post_id) VALUES (1,'This is comment1 for Post1',1);
-INSERT INTO comments (id,name, post_id) VALUES (2,'This is comment2 for Post1',1);
-INSERT INTO comments (id,name, post_id) VALUES (3,'This is comment3 for Post2',2);
-INSERT INTO comments (id,name, post_id) VALUES (4,'This is comment4 for Post2',2);
+--Insert into Student
+INSERT INTO student (gpa, address_id, student_id, name) VALUES (3.5, 1, 1, 'John Doe');
+INSERT INTO student (gpa, address_id, student_id, name) VALUES (3.8, 2, 2, 'Jane Smith');
+INSERT INTO student (gpa, address_id, student_id, name) VALUES (3.2, 3, 3, 'Alice Johnson');
+INSERT INTO student (gpa, address_id, student_id, name) VALUES (3.9, 4, 4, 'Bob Brown');
+INSERT INTO student (gpa, address_id, student_id, name) VALUES (3.4, 5, 5, 'Charlie Davis');
+
+
+--Insert into course
+INSERT INTO course (course_id, name) VALUES (112, 'Mathematics');
+INSERT INTO course (course_id, name) VALUES (113, 'Physics');
+INSERT INTO course (course_id, name) VALUES (114, 'Chemistry');
+INSERT INTO course (course_id, name) VALUES (115, 'Biology');
+INSERT INTO course (course_id, name) VALUES (116, 'History');
+INSERT INTO course (course_id, name) VALUES (117, 'Economics');
+
+--Insert into student_course
+INSERT into student_course (course_id, student_id) VALUES (112, 1);
+INSERT into student_course (course_id, student_id) VALUES (113, 1);
+INSERT into student_course (course_id, student_id) VALUES (114, 1);
+INSERT into student_course (course_id, student_id) VALUES (115, 2);
+INSERT into student_course (course_id, student_id) VALUES (116, 2);
+INSERT into student_course (course_id, student_id) VALUES (117, 2);

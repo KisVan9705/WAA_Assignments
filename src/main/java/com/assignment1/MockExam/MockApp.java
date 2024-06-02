@@ -1,4 +1,4 @@
-package com.assignment1.Lab1;
+package com.assignment1.MockExam;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class Lab1Application {
+public class MockApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Lab1Application.class, args);
+		SpringApplication.run(MockApp.class, args);
 	}
 
 	@Bean
