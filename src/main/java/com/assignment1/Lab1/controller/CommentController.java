@@ -11,17 +11,17 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/comments")
+@RequestMapping("/api/v1/users/{userID}/posts/{postID}/comments")
 
 public class CommentController {
     @Autowired
     private final CommentService commentService;
 
-    @PostMapping
-    public String setComment(@RequestBody CommentDTO comment){
-        commentService.addComment(comment);
-        return "Comment Successfully added";
-    }
+//    @PostMapping
+//    public String setComment(@PathVariable Long userID, @PathVariable Long postID, @RequestBody CommentDTO comment){
+//        commentService.addComment(userID, postID, comment);
+//        return "Comment Successfully added";
+//    }
 
     @GetMapping
     public List<Comment> getAllComments(){

@@ -10,12 +10,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface PostRepo extends JpaRepository<Post, Long> {
-    List<Post> findAll();
+//    List<Post> findAll();
 //    Post findById(long id);
 //    void save (Post post);
 //    void delete(long id);
 //    Post update (long id, Post post);
-public List<Post> searchNameByTitle(String title);
+//public List<Post> searchNameByTitle(String title);
 
 
 //find comments by post id;

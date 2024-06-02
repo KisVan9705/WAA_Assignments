@@ -48,7 +48,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public void delete(long id) {
-//        postRepo.delete(id);
+        postRepo.deleteById(id);
     }
 
     @Override
@@ -61,11 +61,15 @@ public class PostServiceImpl implements PostService{
         return null;
     }
 
-//    @Override
-//    public void addCommentToPost(Long post_id, Comment comment) {
-//        Optional<Post> post = postRepo.findById(post_id);
-//
-//    }
+    @Override
+    public void addCommentToPost(Long post_id, Comment comment) {
+        Post post = postRepo.findById(post_id).orElse(null);
+        if (post !=null){
+            post.addComment(comment);
+            postRepo.save(post);
+        }
+
+    }
     @Override
     public List<Comment> findCommentsByPostId(Long postId){
        return postRepo.findCommentByPostId(postId);

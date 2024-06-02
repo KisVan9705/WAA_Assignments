@@ -20,8 +20,7 @@ import java.util.List;
 @Table(name = "posts")
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_seq")
-    @SequenceGenerator(name = "post_seq", sequenceName = "post_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String title;
     String content;
@@ -31,8 +30,13 @@ public class Post {
     @JsonBackReference
     private User user;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
             @JoinColumn(name = "post_id")
             @JsonManagedReference
     List<Comment> comments;
+
+    public void  addComment(Comment comment){
+        comments.add(comment);
+        comment.setPost(this);
+    }
 }

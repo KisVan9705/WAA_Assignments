@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Data
 public class Comment {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
 
-//    @ManyToOne
-//    @JsonBackReference
-//    private Post post;
+    @ManyToOne
+    @JsonBackReference
+    private Post post;
 }

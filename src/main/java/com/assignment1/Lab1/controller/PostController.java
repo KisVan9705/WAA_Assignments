@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("api/v1/posts")
+@RequestMapping("api/v1/users/{userID}/posts")
 @RequiredArgsConstructor
 @RestController
 public class PostController {
 
     private final PostService postService;
-//    private final CommentService commentService;
+    private final CommentService commentService;
 
 
     @GetMapping
@@ -41,12 +41,14 @@ public class PostController {
         postService.delete(id);
         return "Post deleted";
     }
+// to add a comment that will be associated with its post.
 
-//    @PostMapping("/{id}/comments")
-//    public String addCommentToPost(@PathVariable ("id") Long post_id, @RequestBody CommentDTO commentDTO){
-//        commentService.addCommentToPost(post_id,commentDTO);
-//        return "Comment Added to post:" + Long.toString(post_id);
-//    }
+    @PostMapping("/{id}/comments")
+    public String addCommentToPost(@PathVariable ("id") Long post_id, @RequestBody Comment comment){
+        postService.addCommentToPost(post_id, comment);
+//        commentService.(commentDTO);
+        return "Comment Added to post:" + Long.toString(post_id);
+    }
 
     @GetMapping("/{id}/comments")
     public List<Comment> getCommentsByPostId(@PathVariable ("id") Long postId){

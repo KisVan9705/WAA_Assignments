@@ -13,7 +13,7 @@ public interface CommentService {
 
     //get Post along with all the comments. Should probably go in PostService.
     public List<Comment> findAllComments();
-    public void addComment(CommentDTO commentDTO);
+//    public void addComment(Long userID, Long postID, CommentDTO commentDTO);
 
     public void deleteCommentInAPost();
 

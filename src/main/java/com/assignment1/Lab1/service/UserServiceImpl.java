@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService{
     public UserDTO findUserById(Long userId){
        UserDTO mapper = new UserDTO();
 
-        User result = userRepo.findUserById(userId);
+        User result = userRepo.findById(userId).orElse(null);
         mapper.setId(result.getId());
         mapper.setName(result.getName());
         mapper.setPosts(result.getPosts());

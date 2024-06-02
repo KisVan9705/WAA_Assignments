@@ -16,6 +16,6 @@ public interface PostService {
 
     public List<Comment> findCommentsByPostId(Long postId);
 
-    //to add comment to specific post
-//    void addCommentToPost(Long post_id, Comment comment);
+//    to add comment to specific post
+    void addCommentToPost(Long post_id, Comment comment);
 }
