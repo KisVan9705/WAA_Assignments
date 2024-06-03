@@ -1,7 +1,7 @@
-package com.assignment1.Lab1.Repository;
+package com.assignment.Lab4.Repository;
 
-import com.assignment1.Lab1.entity.Post;
-import com.assignment1.Lab1.entity.User;
+import com.assignment.Lab4.entity.User;
+import com.assignment.Lab4.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

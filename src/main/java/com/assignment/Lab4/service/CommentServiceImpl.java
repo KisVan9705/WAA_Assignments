@@ -1,19 +1,12 @@
-package com.assignment1.Lab1.service;
+package com.assignment.Lab4.service;
 
-import com.assignment1.Lab1.Repository.CommentRepo;
-import com.assignment1.Lab1.Repository.PostRepo;
-import com.assignment1.Lab1.Repository.UserRepo;
-import com.assignment1.Lab1.entity.Comment;
-import com.assignment1.Lab1.entity.DTOs.CommentDTO;
-import com.assignment1.Lab1.entity.DTOs.PostDTO;
-import com.assignment1.Lab1.entity.Post;
-import com.assignment1.Lab1.entity.User;
-import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
+import com.assignment.Lab4.Repository.CommentRepo;
+import com.assignment.Lab4.entity.Comment;
+import com.assignment.Lab4.Repository.PostRepo;
+import com.assignment.Lab4.Repository.UserRepo;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 

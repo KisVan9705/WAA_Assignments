@@ -1,12 +1,10 @@
-package com.assignment1.Lab1.controller;
+package com.assignment.Lab4.controller;
 
-import com.assignment1.Lab1.entity.Comment;
-import com.assignment1.Lab1.entity.DTOs.CommentDTO;
-import com.assignment1.Lab1.entity.DTOs.PostDTO;
-import com.assignment1.Lab1.service.CommentService;
-import com.assignment1.Lab1.service.PostService;
+import com.assignment.Lab4.entity.Comment;
+import com.assignment.Lab4.entity.DTOs.PostDTO;
+import com.assignment.Lab4.service.CommentService;
+import com.assignment.Lab4.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

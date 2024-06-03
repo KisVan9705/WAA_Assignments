@@ -1,10 +1,10 @@
-package com.assignment1.Lab1.controller;
+package com.assignment.Lab4.controller;
 
 
-import com.assignment1.Lab1.entity.Post;
-import com.assignment1.Lab1.entity.User;
-import com.assignment1.Lab1.entity.DTOs.UserDTO;
-import com.assignment1.Lab1.service.UserService;
+import com.assignment.Lab4.entity.Post;
+import com.assignment.Lab4.entity.User;
+import com.assignment.Lab4.entity.DTOs.UserDTO;
+import com.assignment.Lab4.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,6 @@
-package com.assignment1.Lab1.entity.DTOs;
+package com.assignment.Lab4.entity.DTOs;
 
-import com.assignment1.Lab1.entity.Comment;
+import com.assignment.Lab4.entity.Comment;
 import lombok.*;
 import org.springframework.stereotype.Component;
 

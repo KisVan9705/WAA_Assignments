@@ -1,9 +1,6 @@
-package com.assignment1.Lab1.service;
+package com.assignment.Lab4.service;
 
-import com.assignment1.Lab1.entity.Comment;
-import com.assignment1.Lab1.entity.DTOs.CommentDTO;
-import com.assignment1.Lab1.entity.Post;
-import com.assignment1.Lab1.entity.User;
+import com.assignment.Lab4.entity.Comment;
 
 import java.util.List;
 

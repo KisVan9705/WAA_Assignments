@@ -1,4 +1,4 @@
-package com.assignment1.Lab1.entity;
+package com.assignment.Lab4.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
