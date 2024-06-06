@@ -1,9 +1,9 @@
 spring:
   application:
-    name: spring-data-demo-2
+    name: MockExam
   datasource:
     password: 1
-    url: jdbc:postgresql://localhost:5432/lab1
+    url: jdbc:postgresql://localhost:5432/mockdb
     username: postgres
   jpa:
     hibernate:

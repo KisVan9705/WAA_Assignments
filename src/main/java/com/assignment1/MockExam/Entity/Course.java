@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
 
 import java.util.List;
 
@@ -12,16 +14,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Course {
     @Id
     @Column(name = "course_id")
     private long id;
     private String name;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
+    @BatchSize(size = 2)
     @JsonBackReference
     @JoinTable(
-            name = "student_course",
+            name = "course_student",
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )

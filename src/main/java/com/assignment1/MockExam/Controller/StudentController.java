@@ -1,5 +1,6 @@
 package com.assignment1.MockExam.Controller;
 
+import com.assignment1.MockExam.Aspect.ExecutionTime;
 import com.assignment1.MockExam.Entity.Course;
 import com.assignment1.MockExam.Entity.Student;
 import com.assignment1.MockExam.Service.StudentService;
@@ -18,6 +19,7 @@ public class StudentController {
     @Autowired
     private final StudentService studentService;
 
+    @ExecutionTime
     @GetMapping
     public List<Student> getAllStudents(){
       return  studentService.getAllStudents();
@@ -50,5 +52,23 @@ public class StudentController {
     public  List<Student> getStudentByGPALessThanValue(@PathVariable ("value") double value){
         return studentService.getStudentByGPALessThanValue(value);
     }
+
+    @PutMapping("/{id}")
+    public Student updateStudentInfo(@PathVariable Long id, @RequestBody Student student){
+        return studentService.updateStudentInfo(id, student);
+    }
+
+    @GetMapping("/search")
+    public Student getStudentByNameContaining(@RequestParam(required = true) String name){
+        return studentService.findStudentByNameContainingIgnoreCase(name);
+    }
+
+    //find students with more than one course
+
+    @GetMapping("/courses/{size}")
+    public List<Student> getStudentByCourseSize(@PathVariable Integer size){
+        return studentService.findStudentByCourseSize(size);
+    }
+
 
 }

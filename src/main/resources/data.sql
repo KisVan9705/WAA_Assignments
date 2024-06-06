@@ -21,11 +21,13 @@ INSERT INTO course (course_id, name) VALUES (114, 'Chemistry');
 INSERT INTO course (course_id, name) VALUES (115, 'Biology');
 INSERT INTO course (course_id, name) VALUES (116, 'History');
 INSERT INTO course (course_id, name) VALUES (117, 'Economics');
+INSERT INTO course (course_id, name) VALUES (118, 'Economics3');
 
 --Insert into student_course
-INSERT into student_course (course_id, student_id) VALUES (112, 1);
-INSERT into student_course (course_id, student_id) VALUES (113, 1);
-INSERT into student_course (course_id, student_id) VALUES (114, 1);
-INSERT into student_course (course_id, student_id) VALUES (115, 2);
-INSERT into student_course (course_id, student_id) VALUES (116, 2);
-INSERT into student_course (course_id, student_id) VALUES (117, 2);
+INSERT into course_student (student_id, course_id) VALUES (1, 112);
+INSERT INTO course_student (student_id, course_id) VALUES (1, 113);
+INSERT INTO course_student (student_id, course_id) VALUES (1, 114);
+INSERT INTO course_student (student_id, course_id) VALUES (2, 115);
+INSERT INTO course_student (student_id, course_id) VALUES (2, 116);
+INSERT INTO course_student (student_id, course_id) VALUES (2, 117);
+INSERT INTO course_student (student_id, course_id) VALUES (2, 118);
