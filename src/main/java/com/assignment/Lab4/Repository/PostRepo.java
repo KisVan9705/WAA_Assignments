@@ -1,6 +1,7 @@
 package com.assignment.Lab4.Repository;
 
 import com.assignment.Lab4.entity.Comment;
+import com.assignment.Lab4.entity.DTOs.PostDTO;
 import com.assignment.Lab4.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -21,4 +22,6 @@ public interface PostRepo extends JpaRepository<Post, Long> {
     @Query("SELECT p.comments FROM Post p WHERE p.id = :postId")
     List<Comment> findCommentByPostId(Long postId);
 
+
+    List<PostDTO> findPostsByUser_Id(Long userID);
 }

@@ -5,9 +5,11 @@ import com.assignment.Lab4.entity.Comment;
 import com.assignment.Lab4.entity.DTOs.PostDTO;
 import com.assignment.Lab4.Repository.PostRepo;
 import com.assignment.Lab4.entity.Post;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,10 @@ public class PostServiceImpl implements PostService{
     CommentRepo commentRepo;
 
     private final ModelMapper modelMapper;
+
+    @Qualifier("postMapper")
+    @Autowired
+    private ModelMapper postMapper;
     @Override
     public List<PostDTO> findAll() {
         return postRepo.findAll().stream().map(post -> modelMapper.map(post, PostDTO.class)).collect(Collectors.toList());
@@ -30,8 +36,8 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public PostDTO findById(long id) {
-        Post post = postRepo.findById(id).get();
-        return post != null ? modelMapper.map(post, PostDTO.class): null;
+        Post post = postRepo.findById(id).orElse(null);
+        return (post != null) ? modelMapper.map(post, PostDTO.class): null;
     }
 
     @Override
@@ -48,9 +54,22 @@ public class PostServiceImpl implements PostService{
         postRepo.deleteById(id);
     }
 
+    @Transactional
     @Override
-    public Post update(long id, Post post) {
-        return null;
+    public Post update(long id, PostDTO postDTO) {
+        Post post = postRepo.findById(id).orElse(null);
+
+
+        if(post != null){
+//            post = postMapper.map(postDTO, Post.class);
+            post.setAuthor(postDTO.getAuthor());
+            post.setTitle(postDTO.getTitle());
+            post.setContent(postDTO.getContent());
+//            postRepo.save(post);
+        }
+
+
+        return post;
     }
 
     @Override
@@ -67,6 +86,12 @@ public class PostServiceImpl implements PostService{
         }
 
     }
+
+    @Override
+    public List<PostDTO> findPostByUserID(Long userID) {
+        return postRepo.findPostsByUser_Id(userID);
+    }
+
     @Override
     public List<Comment> findCommentsByPostId(Long postId){
        return postRepo.findCommentByPostId(postId);

@@ -19,4 +19,7 @@ public class Lab4Application {
 	@Bean
 	public ModelMapper userMapper(){ return  new ModelMapper();}
 
+	@Bean
+	public ModelMapper postMapper(){ return  new ModelMapper();}
+
 }
